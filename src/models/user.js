@@ -6,7 +6,7 @@ const { mongoose } = require('../configs/dbConnection')
 /* ------------------------------------------------------- *
 {
     "username": "admin",
-    "password": "aA*123456",
+    "password": "aA?123456",
     "email": "admin@site.com",
     "firstName": "admin",
     "lastName": "admin",
@@ -16,7 +16,7 @@ const { mongoose } = require('../configs/dbConnection')
 }
 {
     "username": "staff",
-    "password": "aA*123456",
+    "password": "aA?123456",
     "email": "staff@site.com",
     "firstName": "staff",
     "lastName": "staff",
@@ -26,7 +26,7 @@ const { mongoose } = require('../configs/dbConnection')
 }
 {
     "username": "test",
-    "password": "aA*123456",
+    "password": "aA?123456",
     "email": "test@site.com",
     "firstName": "test",
     "lastName": "test",
@@ -112,7 +112,7 @@ UserSchema.pre(['save', 'updateOne'], function (next) {
 
     if (isEmailValidated) {
 
-        console.log('Email OK')
+        // console.log('Email OK')
 
         if (data?.password) {
 
@@ -120,7 +120,7 @@ UserSchema.pre(['save', 'updateOne'], function (next) {
 
             if (isPasswordValidated) {
 
-                console.log('Password OK')
+                // console.log('Password OK')
 
                 data.password = passwordEncrypt(data.password)
 

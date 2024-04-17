@@ -1447,7 +1447,7 @@
     "Purchase": {
       "type": "object",
       "properties": {
-        "user_id": {
+        "userId": {
           "type": "object",
           "properties": {
             "type": {
@@ -1463,7 +1463,7 @@
             }
           }
         },
-        "firm_id": {
+        "firmId": {
           "type": "object",
           "properties": {
             "type": {
@@ -1495,7 +1495,7 @@
             }
           }
         },
-        "product_id": {
+        "productId": {
           "type": "object",
           "properties": {
             "type": {
@@ -1535,7 +1535,7 @@
             }
           }
         },
-        "price_total": {
+        "priceTotal": {
           "type": "object",
           "properties": {
             "type": {
@@ -1552,7 +1552,7 @@
     "Sale": {
       "type": "object",
       "properties": {
-        "user_id": {
+        "userId": {
           "type": "object",
           "properties": {
             "type": {
@@ -1584,7 +1584,7 @@
             }
           }
         },
-        "product_id": {
+        "productId": {
           "type": "object",
           "properties": {
             "type": {
@@ -1624,7 +1624,7 @@
             }
           }
         },
-        "price_total": {
+        "priceTotal": {
           "type": "object",
           "properties": {
             "type": {
