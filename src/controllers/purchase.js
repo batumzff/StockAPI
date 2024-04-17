@@ -23,7 +23,12 @@ module.exports = {
             `
         */
 
-        const data = await res.getModelList(Purchase)
+        const data = await res.getModelList(Purchase, {}, [
+            { path: 'userId', select: 'username email' },
+            { path: 'firmId', select: 'name image' },
+            'brandId',
+            { path: 'productId', select: 'name', populate: { path: 'categoryId' } },
+        ])
 
         res.status(200).send({
             error: false,
@@ -63,7 +68,12 @@ module.exports = {
 
         if (req.params?.id) {
         // Single:
-            const data = await Purchase.findOne({ _id: req.params.id })
+            const data = await Purchase.findOne({ _id: req.params.id }).populate([
+                { path: 'userId', select: 'username email' },
+                { path: 'firmId', select: 'name image' },
+                'brandId',
+                { path: 'productId', select: 'name', populate: { path: 'categoryId' } },
+            ])
 
             res.status(200).send({
                 error: false,
@@ -72,7 +82,12 @@ module.exports = {
 
         } else {
         // All:
-            const data = await res.getModelList(Purchase)
+            const data = await res.getModelList(Purchase, {}, [
+                { path: 'userId', select: 'username email' },
+                { path: 'firmId', select: 'name image' },
+                'brandId',
+                { path: 'productId', select: 'name', populate: { path: 'categoryId' } },
+            ])
 
             res.status(200).send({
                 error: false,
