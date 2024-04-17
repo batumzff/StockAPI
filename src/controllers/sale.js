@@ -23,7 +23,11 @@ module.exports = {
             `
         */
 
-        const data = await res.getModelList(Sale)
+        const data = await res.getModelList(Sale, {}, [
+            { path: 'userId', select: 'username email' },
+            'brandId',
+            { path: 'productId', select: 'name', populate: { path: 'categoryId' } },
+        ])
 
         res.status(200).send({
             error: false,
@@ -63,7 +67,11 @@ module.exports = {
 
         if (req.params?.id) {
         // Single:
-            const data = await Sale.findOne({ _id: req.params.id })
+            const data = await Sale.findOne({ _id: req.params.id }).populate([
+                { path: 'userId', select: 'username email' },
+                'brandId',
+                { path: 'productId', select: 'name', populate: { path: 'categoryId' } },
+            ])
 
             res.status(200).send({
                 error: false,
@@ -72,7 +80,11 @@ module.exports = {
 
         } else {
         // All:
-            const data = await res.getModelList(Sale)
+            const data = await res.getModelList(Sale, {}, [
+                { path: 'userId', select: 'username email' },
+                'brandId',
+                { path: 'productId', select: 'name', populate: { path: 'categoryId' } },
+            ])
 
             res.status(200).send({
                 error: false,
